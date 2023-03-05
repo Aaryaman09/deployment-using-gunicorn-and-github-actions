@@ -6,7 +6,7 @@ A brief description of what this project does and who it's for
 ### docker run : docker run -p <local-host-port(choose any)>:<container-port(choose any but keep it same with -e PORT)> -e PORT=<Environment-port-used-by-flask((choose any but keep it same with -p container-port)> <docker-image-name/id>
 
 Example : docker run -p 9000:7000 -e PORT=7000 <docker-image-id>
-1. Dont worry if docker file has ENV PORT = <any-port>. It will be overwritten and used by flask and gunicorn to publish.
+1. Don't worry if docker file has ENV PORT=<any-port>. It will be overwritten and used by flask and gunicorn to publish.
 2. EXPOSE $PORT is just documentaion. So it will just pick value from port variable within the container.
 3. container port (-p second half) must be same as flask/gunicorn/environment port (-e PORT) so the connection can be made from flask to container's exit gateway.
 4. -p just map container's port to outside world port/local host port. -p 9000 <- 7000 i.e. map inside container port to outside using a new face as 9000. so flask is running on port given by -e PORT at run time i.e. 7000. so in terminal of docker container we see 0.0.0.0:7000 because we binded it to accept all types of requests. To view output of docker container, bcz of mapping that same output of flask is getting displayed at port 9000 i.e. localhost:9000. 
