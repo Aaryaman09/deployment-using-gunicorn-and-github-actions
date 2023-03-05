@@ -3,6 +3,8 @@
 
 A brief description of what this project does and who it's for
 
+## docker run : docker run -p <local-host-port(choose any)>:<container-port(choose any but keep it same with -e PORT)> -e PORT=<Environment-port-used-by-flask((choose any but keep it same with -p container-port)> <docker-image-name/id>
+
 
 ## Acknowledgements
 
